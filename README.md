@@ -3,7 +3,7 @@
 <div align="center">
 
 <!-- Animated Banner -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Smart%20Recruitment%20AI&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Where%20Deep%20Learning%20Meets%20Hiring%20Intelligence&descAlignY=60&descSize=18&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:704264,50:DBAFA0,100:49243E&height=200&section=header&text=Smart%20Recruitment%20AI&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Where%20Deep%20Learning%20Meets%20Hiring%20Intelligence&descAlignY=60&descSize=18&animation=fadeIn"/>
 
 <br/>
 
@@ -238,6 +238,6 @@ Feel free to open a [GitHub Issue](https://github.com/YOUR_USERNAME/smart-recrui
 
 **Built with ❤️ using Python, PyTorch, and Explainable AI**
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=120&section=footer"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:704264,50:DBAFA0,100:49243E&height=120&section=footer"/>
 
 </div>
