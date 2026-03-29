@@ -1,5 +1,5 @@
 # AI-Assisted-Smart-Recruitment-System
-📝 This project is an end-to-end AI-powered hiring system that parses resumes, classifies candidates using Random Forest & a PyTorch Neural Network, and semantically matches them to job descriptions via FAISS vector search. It computes hire probability through skill gap analysis and semantic similarity — with every decision explained transparently using SHAP explainability.
+
 <div align="center">
 
 <!-- Animated Banner -->
