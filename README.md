@@ -18,7 +18,6 @@
 <!-- Badges Row 2 -->
 <img src="https://img.shields.io/badge/FAISS-Vector%20Search-00C7B7?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/SHAP-Explainable%20AI-6236FF?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/LIME-Interpretability-FF6B6B?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/>
 
 <br/><br/>
@@ -37,7 +36,7 @@ This project explores **smart recruitment** through two complementary lenses:
 |---|---|---|
 | **Core Model** | Random Forest Classifier | Custom Deep Neural Network (PyTorch) |
 | **Embeddings** | Sentence Transformers (`all-MiniLM`) | Sentence Transformers + DL Layers |
-| **Explainability** | Feature Importance Plots | SHAP + LIME (Full XAI Suite) |
+| **Explainability** | Feature Importance Plots | SHAP |
 | **Search** | FAISS Vector Index | FAISS Vector Index |
 | **Extra** | Skill Gap + Hire Probability | ROC Curves + Multi-class Probability |
 
@@ -67,7 +66,7 @@ This project explores **smart recruitment** through two complementary lenses:
                                 │
                                 ▼
                     🔍 XAI Explanations
-                    (SHAP Values + LIME Tabular)
+                         (SHAP Values)
 ```
 
 ---
@@ -94,7 +93,6 @@ This project explores **smart recruitment** through two complementary lenses:
 
 ### 🔍 Explainable AI (XAI) — *What makes this unique*
 - **SHAP**: Global + local feature attributions for model transparency
-- **LIME**: Instance-level tabular explanations for individual decisions
 - Every hiring prediction can be justified — no black-box decisions
 
 ---
@@ -110,35 +108,56 @@ This project explores **smart recruitment** through two complementary lenses:
 | 🎯 Skill Coverage vs Hire Probability | Scatter plot linking skills to hire chance |
 | 🏆 Candidate Ranking Bar Chart | Top-N candidates ranked by hire probability |
 | 🔥 SHAP Summary Plot | Global feature importance from the DL model |
-| 🔬 LIME Explanation | Local explanation for a single candidate prediction |
 | 🛣️ Pipeline Flowchart | End-to-end recruitment pipeline visualization |
 
 ---
 
 ## 🛠️ Tech Stack
 
-```python
-# Core ML & DL
-torch              # Deep Learning (custom MLP classifier)
-scikit-learn       # Random Forest, metrics, preprocessing
-sentence-transformers  # Semantic embeddings (all-MiniLM-L6-v2)
-
-# Vector Search
-faiss-cpu          # Approximate Nearest Neighbour search
-
-# NLP & Parsing
-spacy              # Named Entity Recognition (skill extraction)
-pdfplumber         # PDF text extraction
-nltk               # Stopword removal, text normalization
-
-# Explainability
-shap               # SHapley Additive exPlanations
-lime               # Local Interpretable Model-agnostic Explanations
-
-# Visualization
-matplotlib         # Core plotting
-seaborn            # Statistical visualization
-```
+💻 Programming Language
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+</p>
+🧠 ML & Deep Learning
+<p>
+  <img src="https://img.shields.io/badge/PyTorch-Custom%20MLP%20Classifier-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
+  <img src="https://img.shields.io/badge/scikit--learn-ML%20Framework-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Model-Random%20Forest%20(n=150)-2E7D32?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Model-all--MiniLM--L6--v2-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
+</p>
+🔍 Vector Search
+<p>
+  <img src="https://img.shields.io/badge/FAISS-Approximate%20Nearest%20Neighbour-00C7B7?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Model-Cosine%20Similarity%20Index-0081A7?style=for-the-badge"/>
+</p>
+📝 NLP & Parsing
+<p>
+  <img src="https://img.shields.io/badge/spaCy-NER%20Skill%20Extraction-09A3D5?style=for-the-badge&logo=spacy&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Model-en__core__web__sm-09A3D5?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/pdfplumber-PDF%20Text%20Extraction-E53935?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/NLTK-Stopword%20Removal-154F5B?style=for-the-badge"/>
+</p>
+🔬 Explainable AI
+<p>
+  <img src="https://img.shields.io/badge/SHAP-Shapley%20Additive%20Explanations-6236FF?style=for-the-badge"/>
+</p>
+📦 Libraries
+<p>
+  <img src="https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+  <img src="https://img.shields.io/badge/tqdm-Progress%20Bars-FFC107?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/sentence--transformers-Semantic%20Embeddings-FF6F00?style=for-the-badge"/>
+</p>
+📊 Visualization
+<p>
+  <img src="https://img.shields.io/badge/Matplotlib-Core%20Plotting-11557C?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Seaborn-Statistical%20Visualization-4C72B0?style=for-the-badge"/>
+</p>
+🧰 Tools & Environment
+<p>
+  <img src="https://img.shields.io/badge/Kaggle-Notebook%20Environment-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Jupyter-Interactive%20Notebooks-F37626?style=for-the-badge&logo=jupyter&logoColor=white"/>
+</p>
 
 ---
 
@@ -180,7 +199,7 @@ jupyter notebook recruitment-dl-xai.ipynb
 ```
 📦 smart-recruitment-ai
  ┣ 📓 recruitment-ml.ipynb          ← ML pipeline (Random Forest + FAISS)
- ┣ 📓 recruitment-dl-xai.ipynb      ← DL pipeline (PyTorch + SHAP + LIME)
+ ┣ 📓 recruitment-dl-xai.ipynb      ← DL pipeline (PyTorch + SHAP)
  ┗ 📄 README.md
 ```
 
@@ -197,11 +216,13 @@ jupyter notebook recruitment-dl-xai.ipynb
 
 ## 🔮 Future Roadmap
 
-- [ ] 🌐 Streamlit / Gradio web app for real-time resume screening
-- [ ] 🤗 Fine-tune domain-specific transformer (e.g., `bert-base-uncased`)
-- [ ] 📬 Email notification pipeline for shortlisted candidates
-- [ ] 🌍 Multi-language resume support
-- [ ] 📊 Interactive dashboard with Plotly / Dash
+- 🧠 LLM + Knowledge GraphsCombine : large language models with knowledge-graph-based candidate profiling for deeper semantic understanding of resumes and job requirements
+- ⚖️ Ethical AI & Bias Detection : Integrate fairness-aware learning algorithms and bias-detection methods to promote ethical adoption of AI in hiring workflows
+- 🌍 Multilingual & Cross-Domain Matching : Extend the framework to support multilingual resume analysis and cross-domain job matching for international recruitment scenarios
+- 🌐 Web Application : Deploy the full recruitment pipeline as an interactive web app — allowing recruiters to upload resumes, enter job descriptions, and receive ranked candidates with XAI explanations in real time
+- 📊 Interactive Recruiter Dashboard : Build a web-based dashboard for recruiters to visualize candidate insights and hiring recommendations in real time
+- 📂 Larger & More Diverse Datasets : Scale up resume data volume and diversity to improve model generalization and robustness across job categories
+- 📡 Real-Time Job Market Integration : Incorporate live job market data and automated job description analysis for more accurate candidate-job matching and smarter hiring decisions
 
 ---
 
