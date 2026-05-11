@@ -29,17 +29,18 @@
 
 ---
 
-## 🧠 Two Approaches, One Goal
-
-This project explores **smart recruitment** through two complementary lenses:
-
-| | 📊 `recruitment-ml.ipynb` | 🔬 `recruitment-dl-xai.ipynb` |
-|---|---|---|
-| **Core Model** | Random Forest Classifier | Custom Deep Neural Network (PyTorch) |
-| **Embeddings** | Sentence Transformers (`all-MiniLM`) | Sentence Transformers + DL Layers |
-| **Explainability** | Feature Importance Plots | SHAP |
-| **Search** | FAISS Vector Index | FAISS Vector Index |
-| **Extra** | Skill Gap + Hire Probability | ROC Curves + Multi-class Probability |
+## 🧠 Three Approaches, One Goal
+ 
+This project explores **smart recruitment** through three complementary lenses:
+ 
+| | 📊 `recruitment-ml.ipynb` | 🔬 `recruitment-dl-xai.ipynb` | 🖥️ `ai-assisted-recruitment-system-gradio-ui.ipynb` |
+|---|---|---|---|
+| **Core Model** | Random Forest Classifier | Custom Deep Neural Network (PyTorch) | SBERT + FAISS (runtime reuse) |
+| **Embeddings** | Sentence Transformers (`all-MiniLM`) | Sentence Transformers + DL Layers | Sentence Transformers (`all-MiniLM`) |
+| **Explainability** | Feature Importance Plots | SHAP | Predicted Category + Confidence Score |
+| **Search** | FAISS Vector Index | FAISS Vector Index | FAISS Vector Index |
+| **Interface** | Jupyter Notebook | Jupyter Notebook | Interactive Gradio Web UI |
+| **Extra** | Skill Gap + Hire Probability | ROC Curves + Multi-class Probability | Chatbot + Resume Preview + Live Ranking |
 
 ---
 
@@ -66,40 +67,43 @@ This project explores **smart recruitment** through two complementary lenses:
                     (Semantic Similarity × Skill Coverage)
                                 │
                                 ▼
-                    🔍 XAI Explanations
-                         (SHAP Values)
+                    🔍 XAI Explanations              🖥️ Gradio Interactive UI
+                         (SHAP Values)              (Candidate Finder + Chatbot)
 ```
 
 ---
 
 ## 🌟 Key Features
-
+ 
 ### 🗂️ Resume Intelligence
 - **PDF & CSV ingestion** with `pdfplumber` for raw resume extraction
 - **Multi-category classification** across job domains using fine-tuned sentence embeddings
 - **Confusion matrix + ROC curves** for deep model evaluation
-
 ### 🔗 Semantic Job Matching
 - **FAISS vector search** for lightning-fast cosine similarity retrieval
 - Ranks candidates against a job description in milliseconds, at scale
-
 ### 📉 Skill Gap Analysis
 - **spaCy NER** extracts candidate skills from free-text resumes
 - Computes a **skill coverage ratio** against job-required skills
 - Visual scatter plot of `Skill Coverage vs Hire Probability`
-
 ### 🎯 Hire Probability Engine
 - Combines **semantic similarity (65%)** + **skill coverage (35%)**
 - Returns a ranked list of top candidates with explainable scores
-
 ### 🔍 Explainable AI (XAI) — *What makes this unique*
 - **SHAP**: Global + local feature attributions for model transparency
 - Every hiring prediction can be justified — no black-box decisions
+### 🖥️ Interactive Gradio Web UI — *New*
+- **Zero-friction deployment**: auto-installs missing packages on first run and reuses any ML runtime objects already in memory (no redundant re-encoding)
+- **Candidate Finder tab**: paste a job description, optionally list required skills (comma/semicolon separated), choose Top-K via slider, and get an instant ranked table with six scoring dimensions per candidate — Match Score, Semantic Similarity, Skill Coverage, Hire Probability, Attention Score (if DL model is available), and Matched / Missing Skills
+- **Predicted Job Category**: the UI infers the target job domain from the job description embedding and displays the category name with a confidence score
+- **Best Candidate Preview**: first-ranked resume text preview rendered live alongside the results summary
+- **Recruitment Chatbot tab**: a conversational assistant that answers questions about the dataset, the AI models, skills input format, candidate ranking logic, and hire probability — making the system accessible to non-technical recruiters
+- **Dark glassmorphism theme**: polished CSS with gradient hero header, frosted-glass cards, and neon-glow accents — production-ready out of the box
 
 ---
 
 ## 📊 Visualizations Included
-
+ 
 | Chart | Description |
 |---|---|
 | 📦 Resume Category Distribution | Countplot of all resume categories in dataset |
@@ -110,11 +114,12 @@ This project explores **smart recruitment** through two complementary lenses:
 | 🏆 Candidate Ranking Bar Chart | Top-N candidates ranked by hire probability |
 | 🔥 SHAP Summary Plot | Global feature importance from the DL model |
 | 🛣️ Pipeline Flowchart | End-to-end recruitment pipeline visualization |
+| 🖥️ Live Candidate Ranking Table | Interactive dataframe in Gradio UI with multi-score breakdown |
 
 ---
 
 ## 🛠️ Tech Stack
-
+ 
 💻 Programming Language
 <p>
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
@@ -142,6 +147,11 @@ This project explores **smart recruitment** through two complementary lenses:
 <p>
   <img src="https://img.shields.io/badge/SHAP-Shapley%20Additive%20Explanations-6236FF?style=for-the-badge"/>
 </p>
+🖥️ Interactive UI
+<p>
+  <img src="https://img.shields.io/badge/Gradio-Interactive%20Web%20UI-FF7C00?style=for-the-badge&logo=gradio&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Gradio-Chatbot%20Tab-FF7C00?style=for-the-badge&logo=gradio&logoColor=white"/>
+</p>
 📦 Libraries
 <p>
   <img src="https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
@@ -163,72 +173,80 @@ This project explores **smart recruitment** through two complementary lenses:
 ---
 
 ## 🚀 Getting Started
-
+ 
 ### 1. Clone & Install
 ```bash
 git clone https://github.com/YOUR_USERNAME/smart-recruitment-ai.git
 cd smart-recruitment-ai
-
-pip install pdfplumber sentence-transformers faiss-cpu nltk spacy shap lime torch scikit-learn matplotlib seaborn tqdm
+ 
+pip install pdfplumber sentence-transformers faiss-cpu nltk spacy shap lime torch scikit-learn matplotlib seaborn tqdm gradio
 python -m spacy download en_core_web_sm
 ```
-
+ 
+> **Note:** The Gradio UI notebook (`ai-assisted-recruitment-system-gradio-ui.ipynb`) includes an auto-installer that detects and installs any missing packages (`gradio`, `sentence-transformers`, `faiss-cpu`, `scikit-learn`) on first run — so no manual setup is strictly required for the UI.
+ 
 ### 2. Dataset
 This project uses the **[Resume Dataset on Kaggle](https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset)** containing labelled PDF resumes across multiple job categories.
-
+ 
 ```
 /kaggle/input/resume-dataset/
 ├── Resume/Resume.csv       ← Labels + metadata
 └── data/data/              ← PDF resumes by category
 ```
-
+ 
 ### 3. Run
-Open either notebook on **Kaggle** or locally in Jupyter:
-
+Open any notebook on **Kaggle** or locally in Jupyter:
+ 
 ```bash
 # Classic ML approach
 jupyter notebook recruitment-ml.ipynb
-
+ 
 # Deep Learning + XAI approach
 jupyter notebook recruitment-dl-xai.ipynb
+ 
+# Interactive Gradio UI (launches a shareable web app)
+jupyter notebook ai-assisted-recruitment-system-gradio-ui.ipynb
 ```
-
+ 
+The Gradio UI notebook calls `app.launch(share=True)` — Gradio prints a public link you can share with anyone, no server setup needed.
 ---
 
 ## 📁 Project Structure
 
 ```
 📦 smart-recruitment-ai
- ┣ 📓 recruitment-ml.ipynb          ← ML pipeline (Random Forest + FAISS)
- ┣ 📓 recruitment-dl-xai.ipynb      ← DL pipeline (PyTorch + SHAP)
+ ┣ 📓 recruitment-ml.ipynb                           ← ML pipeline (Random Forest + FAISS)
+ ┣ 📓 recruitment-dl-xai.ipynb                       ← DL pipeline (PyTorch + SHAP)
+ ┣ 📓 ai-assisted-recruitment-system-gradio-ui.ipynb ← Interactive Gradio Web UI
  ┗ 📄 README.md
 ```
 
 ---
 
 ## 💡 Results at a Glance
-
+ 
 - ✅ **Multi-class resume classification** with high accuracy across job domains
 - ✅ **Semantic candidate ranking** using FAISS vector search
 - ✅ **Interpretable hire scores** backed by SHAP and LIME explanations
 - ✅ **Full pipeline visualization** from raw PDF → final hiring decision
+- ✅ **Interactive recruiter-facing web UI** via Gradio with real-time candidate ranking and chatbot
 
 ---
 
 ## 🔮 Future Roadmap
-
-- 🧠 LLM + Knowledge GraphsCombine : large language models with knowledge-graph-based candidate profiling for deeper semantic understanding of resumes and job requirements
-- ⚖️ Ethical AI & Bias Detection : Integrate fairness-aware learning algorithms and bias-detection methods to promote ethical adoption of AI in hiring workflows
-- 🌍 Multilingual & Cross-Domain Matching : Extend the framework to support multilingual resume analysis and cross-domain job matching for international recruitment scenarios
-- 🌐 Web Application : Deploy the full recruitment pipeline as an interactive web app — allowing recruiters to upload resumes, enter job descriptions, and receive ranked candidates with XAI explanations in real time
-- 📊 Interactive Recruiter Dashboard : Build a web-based dashboard for recruiters to visualize candidate insights and hiring recommendations in real time
-- 📂 Larger & More Diverse Datasets : Scale up resume data volume and diversity to improve model generalization and robustness across job categories
-- 📡 Real-Time Job Market Integration : Incorporate live job market data and automated job description analysis for more accurate candidate-job matching and smarter hiring decisions
-
+ 
+- 🧠 **LLM + Knowledge Graphs**: Combine large language models with knowledge-graph-based candidate profiling for deeper semantic understanding of resumes and job requirements
+- ⚖️ **Ethical AI & Bias Detection**: Integrate fairness-aware learning algorithms and bias-detection methods to promote ethical adoption of AI in hiring workflows
+- 🌍 **Multilingual & Cross-Domain Matching**: Extend the framework to support multilingual resume analysis and cross-domain job matching for international recruitment scenarios
+- 🌐 **Full-Stack Web Application**: Evolve the Gradio prototype into a production-grade web app with user authentication, resume upload, persistent history, and a real-time recruiter dashboard
+- 📊 **Interactive Recruiter Dashboard**: Build a richer analytics layer on top of the Gradio UI — with visual charts, trend tracking, and export to PDF/Excel — for data-driven hiring decisions
+- 📂 **Larger & More Diverse Datasets**: Scale up resume data volume and diversity to improve model generalization and robustness across job categories
+- 📡 **Real-Time Job Market Integration**: Incorporate live job market data and automated job description analysis for more accurate candidate-job matching and smarter hiring decisions
+  
 ---
 
 ## 🤝 Contributing
-
+ 
 Contributions, issues, and feature requests are welcome!
 Feel free to open a [GitHub Issue](https://github.com/YOUR_USERNAME/smart-recruitment-ai/issues) or submit a pull request.
 
@@ -236,7 +254,7 @@ Feel free to open a [GitHub Issue](https://github.com/YOUR_USERNAME/smart-recrui
 
 <div align="center">
 
-**Built with ❤️ using Python, PyTorch, and Explainable AI**
+**Built with ❤️ using Python, PyTorch, Gradio, and Explainable AI**
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:704264,50:DBAFA0,100:49243E&height=120&section=footer"/>
 
