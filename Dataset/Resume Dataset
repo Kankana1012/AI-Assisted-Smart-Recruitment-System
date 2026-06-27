@@ -1,1 +1,8 @@
+## 📊 Dataset
 
+The dataset used in this project is publicly available on Kaggle and is **not included in this repository** due to its file size.
+
+* **Dataset:** Resume Dataset by Snehaan Bhawal
+* **Link:** https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
+
+This dataset contains **2,400+ resumes** in both **PDF** and **text (string)** formats across **24 job categories**, making it suitable for resume parsing, information extraction, text classification, and recruitment-related NLP tasks. It is released under the **CC0 (Public Domain)** license.
